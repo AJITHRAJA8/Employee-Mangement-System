@@ -22,8 +22,6 @@ A modern Employee Management System built using **Python Flask**, **MySQL**, **H
 
 ✅ MySQL Database Integration
 
-✅ Pagination Support
-
 ---
 
 ## 🛠️ Technologies Used
@@ -110,11 +108,11 @@ python app.py
 ### Dashboard
 ![alt text](image.png)
 
-* Search Employee
+* **Search Employee**
 ![alt text](image-1.png)
-* Add Employee Button
+* **Add Employee Button**
 ![alt text](image-2.png)
-* Update & Delete Operations
+* **Update & Delete Operations**
 ![alt text](image-3.png)
 ![alt text](image-4.png)
 ![alt text](image-5.png)
