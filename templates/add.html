@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Add Employee</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}"
+    </head>
+    <body>
+        <h1>Add user</h1>
+        <form action=""  method="POST">
+            <label>Name</label>
+            <input type="text" name="name" required>
+            <label>Department</label>
+            <input type="text" name="department" required>
+            <label>Salary</label>
+            <input type="number" name="salary" required>
+            <label>City</label>
+            <input type="text" name="city" required>
+            <input type="submit" value="add employee">
+        </form>
+    </body>
+</html>

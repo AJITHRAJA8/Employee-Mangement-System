@@ -13,9 +13,13 @@
             </ul>
         </div>
         <div class="box">
-            <h3 class="one">👤 Add Employee</h3>
+            <h3 class="one">
+                <button>
+                    <a href="{{url_for('add')}}">👤 Add Employee</a>
+                </button>    
+            </h3>
             <input class="two" type="search">
-            <button class="search">🔎Search</button>
+            <h3 class="search">🔎Search</h3>
             <hr>
             <table class="row" border="1">
                 <tr>
@@ -26,6 +30,16 @@
                     <th>City</th>
                     <th>Action</th>
                 </tr>
+                {% for data in datas %}
+                <tr>
+                    <td>{{data.ID}}</td>
+                    <td>{{data.Name}}</td>
+                    <td>{{data.Department}}</td>
+                    <td>{{data.Salary}}</td>
+                    <td>{{data.City}}</td>
+                    <td><a>Update</a></td>
+                </tr>
+                {% endfor %}
             </table>
         </div>
     </body>
