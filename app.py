@@ -39,7 +39,38 @@ def add():
         return redirect(url_for('home'))
     return render_template('add.html')
 
+#update employee
+@app.route('/update/<string:id>',methods=['GET','POST'])
+def update(id):
+    if request.method=='POST':
+       name=request.form['name']
+       department=request.form['department']
+       salary=request.form['salary']
+       city=request.form['city'] 
+       res=con.cursor(dictionary=True)
+       sql="update employee set name=%s,department=%s,salary=%s,city=%s where id=%s"
+       value=(name,department,salary,city,id)
+       res.execute(sql,value)
+       con.commit()
+       return redirect(url_for('home'))
+    
+    res=con.cursor(dictionary=True)
+    sql="select * from employee where id=%s"
+    value=(id,)
+    res.execute(sql,value)
+    result=res.fetchone()
+    return render_template("update.html",datas=result)
+
+#delete Employee
+@app.route('/delete/<string:id>',methods=['GET','POST'])
+def delete(id):
+    res=con.cursor(dictionary=True)
+    sql="delete from employee where id = %s"
+    value=(id,)
+    res.execute(sql,value)
+    con.commit()
+    return redirect(url_for('home'))
 
 
 if(__name__=="__main__"):
-    app.run(debug=True)
+    app.run(debug=True,port=9000)

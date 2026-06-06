@@ -37,7 +37,9 @@
                     <td>{{data.Department}}</td>
                     <td>{{data.Salary}}</td>
                     <td>{{data.City}}</td>
-                    <td><a>Update</a></td>
+                    <td><a href="{{url_for('update',id=data.ID)}}">Update</a>
+                    <a href="{{url_for('delete',id=data.ID)}}">Delete</a>
+                    </td>
                 </tr>
                 {% endfor %}
             </table>

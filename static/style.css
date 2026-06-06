@@ -49,6 +49,7 @@ button:hover{
 .row{
     margin-left:5%;
     margin-right:10px;
+    box-shadow: 0 0 10px darkblue;
 }
 th{
     background-color:rgb(2, 15, 114);
@@ -62,10 +63,10 @@ td{
 form{
     width:400px;
     margin:30px auto;
-    background-color:white;
+    background-color: white;
     padding:25px;
-    border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    box-shadow:0 0  20px darkblue;
 }
 
 label{
