@@ -12,14 +12,33 @@
                 <li> ℹ️About</li>
             </ul>
         </div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="flash-success">
+                        ✅ {{message}}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         <div class="box">
-            <h3 class="one">
-                <button>
-                    <a href="{{url_for('add')}}">👤 Add Employee</a>
-                </button>    
-            </h3>
-            <input class="two" type="search">
-            <h3 class="search">🔎Search</h3>
+            <div class="top-bar">
+                <a class="add-btn" href="{{url_for('add')}}">
+                    👤 Add Employee
+                </a>
+                <form action="/search" method="GET">
+                    <input
+                    type="text"
+                    name="search"
+                    placeholder="Search Employee..."
+                    class="search-input">
+
+                    <button class="search-btn">
+                        🔍 Search
+                    </button>
+                 </form>
+
+            </div>
             <hr>
             <table class="row" border="1">
                 <tr>
@@ -37,8 +56,9 @@
                     <td>{{data.Department}}</td>
                     <td>{{data.Salary}}</td>
                     <td>{{data.City}}</td>
-                    <td><a href="{{url_for('update',id=data.ID)}}">Update</a>
-                    <a href="{{url_for('delete',id=data.ID)}}">Delete</a>
+                    <td>
+                        <a class="edit-btn" href="{{url_for('update',id=data.ID)}}">✏️ Edit</a>
+                        <a class="delete-btn" href="{{url_for('delete',id=data.ID)}}">🗑 Delete</a>
                     </td>
                 </tr>
                 {% endfor %}

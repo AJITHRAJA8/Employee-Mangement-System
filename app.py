@@ -1,4 +1,4 @@
-from flask import Flask,render_template,url_for,request,redirect
+from flask import Flask,render_template,url_for,request,redirect,flash
 import mysql.connector
 
 app=Flask(__name__)
@@ -7,7 +7,7 @@ app=Flask(__name__)
 con=mysql.connector.connect(
     host="localhost",
     user="root",
-    password="your_pass",
+    password="@Ajith@9751",
     database='crud'
 )
 if con.is_connected:
@@ -36,6 +36,7 @@ def add():
         value=(name,department,salary,city)
         res.execute(sql,value)
         con.commit()
+        flash("Employee Added")
         return redirect(url_for('home'))
     return render_template('add.html')
 
@@ -52,6 +53,7 @@ def update(id):
        value=(name,department,salary,city,id)
        res.execute(sql,value)
        con.commit()
+       flash("Employee Updated")
        return redirect(url_for('home'))
     
     res=con.cursor(dictionary=True)
@@ -69,8 +71,21 @@ def delete(id):
     value=(id,)
     res.execute(sql,value)
     con.commit()
+    flash("Employee Deleted")
     return redirect(url_for('home'))
+
+#search by Employee Names
+@app.route('/search',methods=['GET','POST'])
+def search():
+    keyword=request.args.get('search')
+    res=con.cursor(dictionary=True)
+    sql='select * from employee where name like %s'
+    value=('%'+keyword+'%',)
+    res.execute(sql,value)
+    result=res.fetchall()
+    return render_template('home.html',datas=result)
 
 
 if(__name__=="__main__"):
+    app.secret_key="ajith@123"
     app.run(debug=True,port=9000)
