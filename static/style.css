@@ -31,14 +31,16 @@ body{
 
 .flash-success{
     width:95%;
-    margin:20px auto;
-    padding:20px;
-    border:1px solid #b5ddb5;
-    background:#edf9ed;
-    color:#228b22;
+    margin:20px auto 30px;
+    padding:18px 25px;
+    background:#d4edda;
+    color:#155724;
+    border:1px solid #c3e6cb;
+    border-left:6px solid #28a745;
     border-radius:8px;
-    font-size:22px;
-    font-weight:bold;
+    font-size:20px;
+    font-weight:600;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
 }
 
 .box{
@@ -46,7 +48,7 @@ body{
     margin:20px auto;
     background:white;
     border-radius:10px;
-    box-shadow:0 0 15px rgba(0,0,0,.1);
+    box-shadow:0 0 20px rgba(38, 5, 206, 0.864);
     overflow:hidden;
 }
 .top-bar{
@@ -62,6 +64,21 @@ body{
     padding:12px 20px;
     border-radius:5px;
     display:inline-block;
+}
+
+.search-form{
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+.search-form .search-input{
+    width:300px;
+    padding:12px;
+}
+
+.search-form .search-btn{
+    padding:12px 20px;
 }
 
 .search-input{
@@ -113,7 +130,7 @@ tr:hover{
     border-radius:5px;
     margin-left:10px;
 }
-form{
+.container{
     width:500px;
     margin:40px auto;
     background:white;

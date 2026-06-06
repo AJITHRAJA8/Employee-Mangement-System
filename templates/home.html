@@ -26,17 +26,16 @@
                 <a class="add-btn" href="{{url_for('add')}}">
                     👤 Add Employee
                 </a>
-                <form action="/search" method="GET">
+                <form class="search-form" action="/search" method="GET">
                     <input
-                    type="text"
-                    name="search"
-                    placeholder="Search Employee..."
-                    class="search-input">
-
+                        type="text"
+                        name="search"
+                        placeholder="Search Employee..."
+                        class="search-input">
                     <button class="search-btn">
                         🔍 Search
                     </button>
-                 </form>
+                </form>
 
             </div>
             <hr>
